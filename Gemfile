@@ -28,6 +28,7 @@ group :development, :test do
   gem "bundler-audit", require: false
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
+  gem "annotaterb"
 end
 
 group :development do
@@ -40,3 +41,6 @@ group :test do
 end
 
 gem "devise", "~> 5.0"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
