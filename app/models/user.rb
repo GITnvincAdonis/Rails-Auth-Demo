@@ -23,4 +23,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
+
+  def self.from_google(auth)
+    user = find_or_initialize_by(email: auth.info.email)
+
+    if user.new_record?
+      user.password = Devise.friendly_token.first(20)
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name.presence || ""
+    end
+
+    user.save
+    user
+  end
 end

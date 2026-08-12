@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  def google_oauth2
+    user = User.from_google(request.env.fetch("omniauth.auth"))
+
+    if user.persisted?
+      set_flash_message(:notice, :success, kind: "Google") if is_navigational_format?
+      sign_in_and_redirect user, event: :authentication
+    else
+      redirect_to new_user_session_path,
+        alert: user.errors.full_messages.to_sentence.presence || "Google sign-in failed."
+    end
+  end
+
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
