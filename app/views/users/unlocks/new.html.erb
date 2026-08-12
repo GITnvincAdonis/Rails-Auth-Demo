@@ -1,16 +1,23 @@
-<h2>Resend unlock instructions</h2>
+<% content_for :title, "Unlock Account" %>
 
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<div class="w-full space-y-5 rounded-md p-10 w-full lg:w-2/3 xl:w-2/6">
+  <section>
+    <div class="mb-6">
+      <h1 class="text-center text-2xl font-semibold uppercase">Unlock account</h1>
+      <p class="mt-2 text-sm text-neutral-600">We'll email you instructions to restore access.</p>
+    </div>
 
-  <div class="field">
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-  </div>
+    <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, class: "space-y-4" }) do |form| %>
+      <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
+      <div class="space-y-1.5">
+        <%= form.label :email, class: form_label_class %>
+        <%= form.email_field :email, autofocus: true, autocomplete: "email", class: form_field_class, placeholder: "admin@example.com" %>
+      </div>
 
-<%= render "users/shared/links" %>
+      <%= form.submit "Resend unlock instructions", class: "#{call_to_action_button_large} w-full" %>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </section>
+</div>

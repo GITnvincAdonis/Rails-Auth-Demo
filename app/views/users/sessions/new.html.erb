@@ -1,26 +1,40 @@
-<h2>Log in</h2>
+<% content_for :title, "Admin Login" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-  </div>
+<div class="w-full space-y-5 rounded-md p-10 w-full lg:w-2/3 xl:w-2/6">
+  <h2 class="text-center text-2xl font-semibold uppercase">Log in</h2>
 
-  <div class="field">
-    <p><%= f.label :password %></p>
-    <p><%= f.password_field :password, autocomplete: "current-password" %></p>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+    <div class="<%= auth_field_container_class %>">
+      <%= form.label :email, class: auth_label_class %>
+      <%= form.email_field :email, autofocus: true, autocomplete: "email", class: auth_text_field_class %>
+    </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <p><%= f.check_box :remember_me %></p>
-      <p><%= f.label :remember_me %></p>
+    <div class="<%= auth_field_container_class %>">
+      <%= form.label :password, class: auth_label_class %>
+      <%= form.password_field :password, autocomplete: "current-password", class: auth_text_field_class %>
+    </div>
+
+    <div class="mt-4 flex flex-col space-y-3 text-end text-sm text-slate-500">
+      <%- if devise_mapping.recoverable? && controller_name != "passwords" && controller_name != "registrations" %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+      <% end %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div>
+        <%= form.check_box :remember_me, class: auth_checkbox_class %>
+        <%= form.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="mt-4 flex flex-col space-y-3 text-center">
+      <div class="actions">
+        <%= form.submit "Log in", class: "w-full rounded-lg border bg-slate-800 p-2 font-semibold text-white" %>
+      </div>
+      <div class="mx-15 mt-3 border-b-2 border-dashed border-gray-300"></div>
+      <div>
+        <%= render "users/shared/links" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
