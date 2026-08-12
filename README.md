@@ -9,8 +9,9 @@ credentials from Google Cloud:
 cp .env.example .env
 ```
 
-`bin/dev` uses Foreman, which loads `.env` automatically. In other environments,
-provide `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to the Rails process.
+Rails loads `.env` automatically in development and test, including when using
+`rails console`. In other environments, provide `GOOGLE_CLIENT_ID` and
+`GOOGLE_CLIENT_SECRET` to the Rails process.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
