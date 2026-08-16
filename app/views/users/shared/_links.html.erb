@@ -1,9 +1,9 @@
-<div class="space-y-2 text-center text-sm text-slate-500 mt-2">
+<div class="space-y-2 text-center text-sm text-slate-500 mt-2 dark:text-neutral-400">
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= button_to omniauth_authorize_path(resource_name, provider),
         data: { turbo: false },
-        class: "inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-neutral-700 focus:ring-offset-2" do %>
+        class: "inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-neutral-700 focus:ring-offset-2 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:ring-neutral-300 dark:focus:ring-offset-neutral-950" do %>
         <% if provider.to_sym == :google_oauth2 %>
           <svg class="h-5 w-5 shrink-0" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
@@ -20,22 +20,22 @@
   <% end %>
 
   <%- if controller_name != "sessions" %>
-    <p><%= link_to "Sign in", new_session_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline" %></p>
+    <p><%= link_to "Sign in", new_session_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-300 dark:hover:text-white" %></p>
   <% end %>
 
   <%- if devise_mapping.registerable? && controller_name != "registrations" %>
-    <p><%= link_to "Create an account", new_registration_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline" %></p>
+    <p><%= link_to "Create an account", new_registration_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-300 dark:hover:text-white" %></p>
   <% end %>
 
   <%- if devise_mapping.recoverable? && controller_name != "sessions" && controller_name != "passwords" && controller_name != "registrations" %>
-    <p><%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline" %></p>
+    <p><%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-300 dark:hover:text-white" %></p>
   <% end %>
 
   <%- if devise_mapping.confirmable? && controller_name != "confirmations" %>
-    <p><%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline" %></p>
+    <p><%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-300 dark:hover:text-white" %></p>
   <% end %>
 
   <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != "unlocks" %>
-    <p><%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline" %></p>
+    <p><%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: "font-medium text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-300 dark:hover:text-white" %></p>
   <% end %>
 </div>
