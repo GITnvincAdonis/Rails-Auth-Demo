@@ -41,6 +41,11 @@ group :test do
   gem "selenium-webdriver"
 end
 
+
+gem "view_component"
+gem "dotenv-rails"
+gem "pg"
+
 gem "devise", "~> 5.0"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
