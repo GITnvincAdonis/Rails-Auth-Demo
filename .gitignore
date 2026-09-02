@@ -50,3 +50,6 @@ erd.pdf
 /dbdata/
 /brakeman/*
 /config/credentials/production.key
+
+# Keep Kamal deployment secrets local.
+/.kamal/secrets
