@@ -274,9 +274,16 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
+  if ENV["SECRET_KEY_BASE_DUMMY"]
+    google_client_id = google_client_secret = "build-placeholder"
+  else
+    google_client_id = ENV.fetch("GOOGLE_CLIENT_ID")
+    google_client_secret = ENV.fetch("GOOGLE_CLIENT_SECRET")
+  end
+
   config.omniauth :google_oauth2,
-    ENV.fetch("GOOGLE_CLIENT_ID"),
-    ENV.fetch("GOOGLE_CLIENT_SECRET"),
+    google_client_id,
+    google_client_secret,
     scope: "userinfo.email,userinfo.profile"
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

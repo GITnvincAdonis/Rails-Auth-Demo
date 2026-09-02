@@ -5,7 +5,7 @@ service: auth-demo
 #
 # image: dockerhub_username/service_name # docker hub registry image
 # image: namespace_or_username/service_name # gitlab registry image.
-image: GITnvincAdonis/auth-demo # github registry image
+image: gitnvincadonis/auth-demo # GitHub Container Registry paths must be lowercase
 
 registry: # Where you keep your container images.
   # # docker hub
@@ -65,6 +65,8 @@ env:
   secret:
     - RAILS_MASTER_KEY
     - DATABASE_URL
+    - GOOGLE_CLIENT_ID
+    - GOOGLE_CLIENT_SECRET
 
   clear: {}
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
