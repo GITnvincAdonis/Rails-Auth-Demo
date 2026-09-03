@@ -26,3 +26,9 @@ pre-commit:
     - name: rspec
       glob: "*.rb"
       run: bundle exec rspec
+
+after-commit:
+  parallel: false
+  jobs:
+    - name: deploy
+      run: kamal deploy -v
