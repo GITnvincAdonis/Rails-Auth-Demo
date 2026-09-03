@@ -47,6 +47,6 @@ gem "dotenv-rails"
 gem "pg"
 
 gem "devise", "~> 5.0"
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection", "~> 1.0"

@@ -27,4 +27,3 @@ module ApplicationHelper
     "inline-flex cursor-pointer items-center justify-center rounded-lg border border-slate-800 bg-slate-800 p-2 font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-600 focus:ring-offset-2 dark:border-slate-200 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white dark:focus:ring-slate-300 dark:focus:ring-offset-neutral-950"
   end
 end
-

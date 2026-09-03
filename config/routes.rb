@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     passwords: "users/passwords",
     unlocks: "users/unlocks",
     omniauth_callbacks: "users/omniauth_callbacks",
-    registrations: "users/registrations",
+    registrations: "users/registrations"
   }, path: "login"
 
   get "up" => "rails/health#show", as: :rails_health_check
-  root 'homes#index'
+  root "homes#index"
 end
