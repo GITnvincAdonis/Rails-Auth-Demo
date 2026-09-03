@@ -274,7 +274,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  if ENV["SECRET_KEY_BASE_DUMMY"]
+  if Rails.env.test? || ENV["SECRET_KEY_BASE_DUMMY"]
     google_client_id = google_client_secret = "build-placeholder"
   else
     google_client_id = ENV.fetch("GOOGLE_CLIENT_ID")
