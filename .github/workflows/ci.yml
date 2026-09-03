@@ -10,7 +10,7 @@ jobs:
     container:
       image: nvincadonis/ruby-npm-postgres:latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/cache@v4
         with:
           path: vendor/bundle
@@ -38,7 +38,7 @@ jobs:
       DATABASE_URL: postgres://postgres:postgres@db:5432/auth_demo_development
       RAILS_ENV: test
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/cache@v4
         with:
           path: vendor/bundle
@@ -58,7 +58,7 @@ jobs:
     container:
       image: nvincadonis/ruby-npm-postgres:latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/cache@v4
         with:
           path: vendor/bundle
@@ -79,7 +79,7 @@ jobs:
   #   container:
   #     image: nvincadonis/ruby-npm-postgres:latest
   #   steps:
-  #     - uses: actions/checkout@v4
+  #     - uses: actions/checkout@v7
   #     - uses: actions/cache@v4
   #       with:
   #         path: vendor/bundle
