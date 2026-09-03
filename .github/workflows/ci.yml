@@ -71,3 +71,11 @@ jobs:
           bundle config set --local path 'vendor/bundle'
           bundle check || bundle install
       - run: bundle exec rubocop
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [rspec, rubocop]
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: kamal deploy -v
