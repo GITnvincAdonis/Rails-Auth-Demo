@@ -78,4 +78,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: kamal deploy -v
+      - name: install gems
+        run: |
+          bundle config set --local path 'vendor/bundle'
+          bundle check || bundle install
+      - name: deploy
+        run: kamal deploy -v
