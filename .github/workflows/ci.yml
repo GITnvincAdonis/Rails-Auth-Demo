@@ -45,7 +45,10 @@ jobs:
           key: bundle-${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}
           restore-keys: |
             bundle-${{ runner.os }}-
-      - run: bundle config set --local path 'vendor/bundle'
+      - name: Install gems
+        run: |
+          bundle config set --local path 'vendor/bundle'
+          bundle check || bundle install
       - run: bundle exec rails db:prepare
       - run: bundle exec rspec
 
@@ -63,5 +66,8 @@ jobs:
           restore-keys: |
             bundle-${{ runner.os }}-
 
-      - run: bundle config set --local path 'vendor/bundle'
+      - name: Install gems
+        run: |
+          bundle config set --local path 'vendor/bundle'
+          bundle check || bundle install
       - run: bundle exec rubocop
