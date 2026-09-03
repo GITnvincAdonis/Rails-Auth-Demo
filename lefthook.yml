@@ -1,0 +1,28 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+pre-push:
+  parallel: true
+  jobs:
+    - name: gems audit
+      tags:
+        - backend
+        - security
+      run: bundle exec bundle audit check --update
+    - name: brakeman
+      tags:
+        - backend
+        - security
+      run: bundle exec brakeman --format html -o brakeman/index.html
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: rubocop
+      glob: "*.rb"
+      run: bundle exec rubocop --force-exclusion {all_files}
+    - name: rspec
+      glob: "*.rb"
+      run: bundle exec rspec
