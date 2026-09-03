@@ -79,7 +79,6 @@ jobs:
     container:
       image: nvincadonis/ruby-npm-postgres:latest
     steps:
-
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
         with:
@@ -92,4 +91,4 @@ jobs:
           bundle config set --local path 'vendor/bundle'
           bundle check || bundle install
       - name: deploy
-        run: kamal deploy -v
+        run: bundle exec kamal deploy -v
