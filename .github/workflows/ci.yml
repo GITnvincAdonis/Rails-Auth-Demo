@@ -31,11 +31,11 @@ jobs:
       db:
         image: postgres:15
         env:
-          POSTGRES_DB: <db_name>
+          POSTGRES_DB: auth_demo_development
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
     env:
-      DATABASE_URL: postgres://postgres:postgres@db:5432/<db_name>
+      DATABASE_URL: postgres://postgres:postgres@db:5432/auth_demo_development
       RAILS_ENV: test
     steps:
       - uses: actions/checkout@v4
